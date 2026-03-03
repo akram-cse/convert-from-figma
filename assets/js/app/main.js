@@ -2,6 +2,10 @@
             const sectionOne = document.querySelector('.hero-banner');
             const sectionTwo = document.querySelector('.hero-banner-2');
             const buttons = document.querySelectorAll('.size-btn, .size-btn-2');
+            const activeClassMap = {
+                'size-btn': 'size-btn--active',
+                'size-btn-2': 'size-btn--active-2'
+            };
 
             function scrollToSection(target) {
                 if (target) {
@@ -12,16 +16,21 @@
             buttons.forEach((btn) => {
                 btn.addEventListener('click', () => {
                     const label = btn.textContent.trim();
-                    const isSecondGroup = btn.classList.contains('size-btn-2');
-                    const groupSelector = isSecondGroup ? '.size-btn-2' : '.size-btn';
-                    const activeClass = isSecondGroup ? 'size-btn--active-2' : 'size-btn--active';
+                    document.querySelectorAll('.size-btn, .size-btn-2').forEach((b) => {
+                        const classKey = b.classList.contains('size-btn-2') ? 'size-btn-2' : 'size-btn';
+                        b.classList.remove(activeClassMap[classKey]);
+                    });
 
-                    document.querySelectorAll(groupSelector).forEach((b) => b.classList.remove(activeClass));
-                    btn.classList.add(activeClass);
+                    document.querySelectorAll('.size-btn, .size-btn-2').forEach((b) => {
+                        if (b.textContent.trim() === label) {
+                            const classKey = b.classList.contains('size-btn-2') ? 'size-btn-2' : 'size-btn';
+                            b.classList.add(activeClassMap[classKey]);
+                        }
+                    });
 
                     if (label === '500') {
                         scrollToSection(sectionOne);
-                    } else if (label === '200' || label === '250') {
+                    } else if (label === '250') {
                         scrollToSection(sectionTwo);
                     }
                 });
