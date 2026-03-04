@@ -11,6 +11,7 @@ html {
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: #f8fafc;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 
@@ -72,7 +73,7 @@ html {
     transition: transform 0.7s ease;
 }
 
-.btn-shop-now .icon-circle i {
+.btn-shop-now .icon-circle svg {
     transform: rotate(-45deg);
     font-size: 13px;
 }
@@ -102,7 +103,7 @@ html {
     transform: translateX(4px);
 }
 
-.btn-shop-now:hover .icon-circle i {
+.btn-shop-now:hover .icon-circle svg {
     animation: icon-shoot 0.4s ease-out;
 }
 
@@ -179,7 +180,7 @@ html {
     width: 100%;
     height: calc(100vh - 70px);
     min-height: 480px;
-    
+
     background: linear-gradient(90deg, #c85f12 0%, #d97721 50%, #c85f12 100%);
     overflow: hidden;
 }
@@ -208,7 +209,8 @@ html {
 }
 
 .hero-banner-2 {
-    
+
+    height: 100vh;
     background: radial-gradient(ellipse 90% 90% at 50% 50%,
             #d42515 0%,
             #b81a0c 35%,
@@ -238,7 +240,7 @@ html {
 .hero-img-orange,
 .hero-img-orange-2 {
     position: absolute;
-    z-index: 5;
+    z-index: 0;
     user-select: none;
     pointer-events: none;
     width: 450px;
@@ -249,7 +251,7 @@ html {
 
 .hero-text-peach {
     position: absolute;
-    z-index: 5;
+    z-index: 0;
     user-select: none;
     pointer-events: none;
     top: 19%;
@@ -294,6 +296,32 @@ html {
 }
 
 
+.scene-wrap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(900px, 100%);
+    height: 100%;
+    pointer-events: none;
+}
+
+.hero-price-display {
+    position: absolute;
+    left: 50%;
+    bottom: 2%;
+    transform: translateX(-50%);
+    z-index: 999;
+    color: #dcdcdc;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+
 .deco-bottle,
 .deco-bottle-2 {
     position: absolute;
@@ -302,7 +330,6 @@ html {
     transform: translate(-50%, -50%);
     height: clamp(460px, 92vh, 760px);
     z-index: 8;
-
     filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.22));
     pointer-events: none;
 }
@@ -321,11 +348,11 @@ html {
 
 .deco-blur-top,
 .deco-blur-top-2 {
-    width: 400px;
-    top: -18%;
-    left: 24%;
+    width: 380px;
+    top: -14%;
+    left: 29%;
+    transform: translateX(-50%);
     z-index: 2;
-
 }
 
 
@@ -333,21 +360,29 @@ html {
 .deco-blur-right-2 {
     width: clamp(110px, 14vw, 175px);
     top: 30%;
-    right: 21%;
+    right: 4%;
     z-index: 2;
+}
 
+.deco-blur-bottom,
+.deco-blur-bottom-2 {
+    width: clamp(200px, 35vw, 450px);
+    bottom: -15%;
+    right: 0%;
+    z-index: 1;
+    transform: translateX(20%);
+    opacity: 0.8;
 }
 
 
 .deco-slice-bottom-left,
 .deco-slice-bottom-left-2 {
-    width: 150px;
-    bottom: 18%;
-    left: 22%;
+    width: 130px;
+    bottom: 25%;
+    left: 6%;
     opacity: 1;
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.18));
     z-index: 6;
-
 }
 
 
@@ -394,6 +429,219 @@ html {
     color: #1a1a1a;
 }
 
+.product-info-box {
+    position: absolute;
+    bottom: 8%;
+    left: 7.3%;
+    z-index: 10;
+    color: #ffffff;
+    max-width: 420px;
+}
+
+.qty-control {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.qty-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    color: #ffffff;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.qty-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #ffffff;
+}
+
+.qty-value {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.product-pricing {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.price-current {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.price-old {
+    font-size: 1.1rem;
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
+.product-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-weight: 400;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.small-bottles-nav {
+    position: absolute;
+    bottom: 1%;
+    right: 5.3%;
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.small-bottles-nav a {
+    display: block;
+    width: 75px;
+    height: 120px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25));
+}
+
+.small-bottles-nav a.active {
+    width: 90px;
+    height: 150px;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+}
+
+.small-bottles-nav a.active--orange {
+    height: 160px;
+}
+
+.small-bottles-nav a:hover:not(.active) {
+    transform: translateY(-8px);
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+}
+
+.small-bottles-nav img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-150px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(150px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomInFade {
+    0% {
+        opacity: 0;
+        scale: 0.2;
+    }
+
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes floatY {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 20px;
+    }
+}
+
+@keyframes floatXLeftToRight {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 12px 0;
+    }
+}
+
+@keyframes floatXRightToLeft {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: -12px 0;
+    }
+}
+
+.one {
+    animation: slideInFromLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.two {
+    animation: slideInFromRight 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+img.one {
+    animation:
+        slideInFromLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards,
+        floatXRightToLeft 3.6s ease-in-out 1.2s infinite;
+}
+
+img.two {
+    animation:
+        slideInFromRight 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards,
+        floatXLeftToRight 3.6s ease-in-out 1.2s infinite;
+}
+
+.hero-text-peach.one {
+    animation:
+        slideInFromLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards,
+        floatXRightToLeft 3.6s ease-in-out 1.2s infinite;
+}
+
+.three {
+    animation:
+        zoomInFade 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0s forwards,
+        floatY 3.6s ease-in-out 1.2s infinite;
+}
+
 
 @media (max-width: 768px) {
     .hero-title-orange {
@@ -413,7 +661,7 @@ html {
     .deco-bottle-2 {
         height: clamp(320px, 62vh, 470px);
         left: 50%;
-        transform: translate(-45%, -50%);
+        transform: translate(-50%, -50%);
     }
 
     .deco-bottle-2 {
@@ -441,4 +689,43 @@ html {
     .deco-blur-right-2 {
         display: none;
     }
+
+    .deco-blur-bottom,
+    .deco-blur-bottom-2 {
+        width: clamp(150px, 45vw, 250px);
+        bottom: -10%;
+        right: -5%;
+        transform: none;
+    }
+
+    .product-info-box {
+        bottom: 2%;
+        left: 4%;
+        max-width: 80%;
+    }
+
+    .product-desc {
+        font-size: 0.8rem;
+    }
+
+    .small-bottles-nav {
+        bottom: 2%;
+        right: 4%;
+        gap: 8px;
+    }
+
+    .small-bottles-nav a {
+        width: 48px;
+        height: 90px;
+    }
+
+    .small-bottles-nav a.active {
+        width: 62px;
+        height: 120px;
+    }
+
+    .small-bottles-nav a.active--orange {
+        height: 130px;
+    }
 }
+

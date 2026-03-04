@@ -11,6 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/swiper-bundle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/app/style.css">
 
 
@@ -19,21 +20,21 @@
 <body>
 
     <header class="page-wrapper">
-        <!-- Main Navbar -->
+        
         <nav class="navbar navbar-expand-lg custom-navbar">
             <div class="container">
-                <!-- Brand -->
+                
                 <a class="navbar-brand brand-pubtt" href="#">
                     <img src="assets/img/PUBTT.png" alt="Logo">
                 </a>
 
-                <!-- Offcanvas Toggler for Mobile -->
+                
                 <button class="navbar-toggler border-0 shadow-none text-white" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <i class="fas fa-bars fs-3"></i>
                 </button>
 
-                <!-- Offcanvas -->
+                
                 <div class="offcanvas offcanvas-end mobile-offcanvas" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
@@ -41,7 +42,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body align-items-center">
-                        <!-- Nav Links -->
+                        
                         <ul class="navbar-nav mx-auto nav-links-custom gap-lg-4 mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Menu</a>
@@ -57,7 +58,7 @@
                             </li>
                         </ul>
 
-                        <!-- Call to Action -->
+                        
                         <div class="d-flex align-items-center nav-actions">
                             <button class="btn btn-shop-now rounded-pill d-flex align-items-center gap-2 p-1 ps-4">
                                 <span class="fw-bold">Shop Now</span>
@@ -74,75 +75,155 @@
     </header>
 
 
-    <section class="hero-banner">
+    <section id="section-orange" class="hero-banner">
 
-        <!-- Decorative: blurred slice top-center -->
-        <img src="assets/img/orange-half-slice.png" alt="Orange" class="deco deco-blur-top" aria-hidden="true">
-
-        <!-- Decorative: blurred slice mid-right -->
-        <img src="assets/img/orange-blur.png" alt="" class="deco deco-blur-right" aria-hidden="true">
-
-        <!-- Decorative: sharp orange slice bottom-left -->
-        <img src="assets/img/orange-slice.png" alt="" class="deco deco-slice-bottom-left" aria-hidden="true">
-
-        <!-- Main bottle -->
-        <img src="assets/img/bottle-orange-rotate.png" alt="Orange Juice Bottle" class="deco deco-bottle">
-
-        <!-- Back link -->
+        
         <a href="javascript:history.back()" class="hero-back-link">Back</a>
 
-        <!-- Cursive headline: Orange (top-left) -->
-        <img src="assets/img/orange.png" class="hero-img-orange " alt="text">
+        
+        <img src="assets/img/orange.png" class="hero-img-orange one" alt="text">
 
-        <!-- Cursive headline: Juice (bottom-right) -->
-        <img src="assets/img/juice.png" class="hero-img-juice " alt="text">
+        
+        <img src="assets/img/juice.png" class="hero-img-juice two" alt="text">
 
-        <!-- Right-side size selector -->
+        
+        <div class="scene-wrap">
+            
+            <img src="assets/img/orange-half-slice.png" alt="Orange" class="deco deco-blur-top" aria-hidden="true">
+
+            
+            <img src="assets/img/orange-blur.png" alt="" class="deco deco-blur-right" aria-hidden="true">
+
+            
+            <img src="assets/img/orange-slice.png" alt="" class="deco deco-slice-bottom-left" aria-hidden="true">
+
+            
+            <img src="assets/img/bottle-orange-rotate.png" alt="Orange Juice Bottle" class="deco deco-bottle three">
+        </div>
+
+        
+        <span class="hero-price-display">$12.50</span>
+
+        
+        <div class="product-info-box">
+            <div class="qty-control">
+                <button class="qty-btn" type="button" aria-label="Decrease quantity">
+                    <i class="fa-solid fa-minus" style="font-size:10px;"></i>
+                </button>
+                <span class="qty-value">1</span>
+                <button class="qty-btn" type="button" aria-label="Increase quantity">
+                    <i class="fa-solid fa-plus" style="font-size:10px;"></i>
+                </button>
+            </div>
+            <div class="product-pricing">
+                <h3 class="product-title">Orange Favour</h3>
+                <span class="price-current">$12.50</span>
+                <span class="price-old">$19.50</span>
+            </div>
+            <p class="product-desc">
+                Enjoy the power of fresh, zesty vitasips in every sip! Our energy drink is packed with natural vitamins,
+                bursting with citrus flavor, and gives you a clean boost of energy
+            </p>
+        </div>
+
+        
         <div class="hero-size-selector d-flex flex-column align-items-center gap-3">
             <button class="size-btn size-btn--active">500</button>
             <button class="size-btn">250</button>
             <button class="size-btn">100</button>
         </div>
 
+        
+        <div class="small-bottles-nav">
+            <a href="#section-orange" aria-label="Orange flavor" class="active active--orange">
+                <img src="assets/img/orange-bottle-single.png" alt="Orange Bottle">
+            </a>
+            <a href="#section-peach" aria-label="Peach flavor">
+                <img src="assets/img/bottle-peach.png" alt="Peach Bottle">
+            </a>
+            <a href="#" aria-label="Apple flavor">
+                <img src="assets/img/apple-bottle.png" alt="Apple Bottle">
+            </a>
+        </div>
+
     </section>
 
-    <!-- Section gap bridge — maintains bg color continuity -->
+    
     <div class="section-bridge"></div>
 
-    <section class="hero-banner-2">
+    <section id="section-peach" class="hero-banner-2">
 
-        <!-- Decorative: blurred slice top-center -->
-        <img src="assets/img/orange-half-slice.png" alt="Orange" class="deco-2 deco-blur-top-2" aria-hidden="true">
+        
+        <h1 class="hero-text-peach one">Peach</h1>
 
-        <!-- Decorative: blurred slice mid-right -->
-        <img src="assets/img/orange-blur.png" alt="" class="deco-2 deco-blur-right-2" aria-hidden="true">
+        
+        <img src="assets/img/juice.png" class="hero-img-juice-2 two" alt="text">
 
-        <!-- Decorative: sharp orange slice bottom-left -->
-        <img src="assets/img/orange-slice.png" alt="" class="deco-2 deco-slice-bottom-left-2" aria-hidden="true">
+        
+        <div class="scene-wrap">
+            
+            <img src="assets/img/orange-half-slice.png" alt="Orange" class="deco-2 deco-blur-top-2" aria-hidden="true">
 
-        <!-- Main bottle -->
-        <img src="assets/img/bottle-peach.png" alt="Orange Juice Bottle" class="deco-2 deco-bottle-2">
+            
+            <img src="assets/img/orange-blur.png" alt="" class="deco-2 deco-blur-right-2" aria-hidden="true">
 
-        <!-- Back link -->
+            
+            <img src="assets/img/orange-slice.png" alt="" class="deco-2 deco-slice-bottom-left-2" aria-hidden="true">
 
+            
+            <img src="assets/img/bottle-peach.png" alt="Peach Juice Bottle" class="deco-2 deco-bottle-2 three">
+        </div>
 
-        <!-- Cursive headline: Peach (replaces orange.png image) -->
-        <h1 class="hero-text-peach">Peach</h1>
+        
+        <span class="hero-price-display">$12.50</span>
 
-        <!-- Cursive headline: Juice (bottom-right) -->
-        <img src="assets/img/juice.png" class="hero-img-juice-2" alt="text">
+        
+        <div class="product-info-box">
+            <div class="qty-control">
+                <button class="qty-btn" type="button" aria-label="Decrease quantity">
+                    <i class="fa-solid fa-minus" style="font-size:10px;"></i>
+                </button>
+                <span class="qty-value">1</span>
+                <button class="qty-btn" type="button" aria-label="Increase quantity">
+                    <i class="fa-solid fa-plus" style="font-size:10px;"></i>
+                </button>
+            </div>
+            <div class="product-pricing">
+                <h3 class="product-title">Peach Favour</h3>
+                <span class="price-current">$12.50</span>
+                <span class="price-old">$19.50</span>
+            </div>
+            <p class="product-desc">
+                Enjoy the power of fresh, zesty vitasips in every sip! Our energy drink is packed with natural vitamins,
+                bursting with citrus flavor, and gives you a clean boost of energy
+            </p>
+        </div>
 
-        <!-- Right-side size selector -->
+        
         <div class="hero-size-selector-2 d-flex flex-column align-items-center gap-3">
             <button class="size-btn-2">500</button>
             <button class="size-btn-2 size-btn--active-2">250</button>
             <button class="size-btn-2">100</button>
         </div>
 
+        
+        <div class="small-bottles-nav">
+            <a href="#section-orange" aria-label="Orange flavor">
+                <img src="assets/img/orange-bottle-single.png" alt="Orange Bottle">
+            </a>
+            <a href="#section-peach" aria-label="Peach flavor" class="active">
+                <img src="assets/img/bottle-peach.png" alt="Peach Bottle">
+            </a>
+            <a href="#" aria-label="Apple flavor">
+                <img src="assets/img/apple-bottle.png" alt="Apple Bottle">
+            </a>
+        </div>
+
     </section>
 
-    <!-- Bootstrap Bundle JS -->
+    
     <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/lib/swiper-bundle.min.js"></script>
     <script src="assets/js/lib/fontawesome.all.min.js"></script>
     <script src="assets/js/app/main.js"></script>
 </body>
