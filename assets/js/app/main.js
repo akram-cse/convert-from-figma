@@ -81,8 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // Product Quantity and Pricing Logic
     const productInfoBoxes = document.querySelectorAll('.product-info-box');
 
     productInfoBoxes.forEach(box => {
@@ -91,12 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const qtyValueDisplay = box.querySelector('.qty-value');
         const priceCurrentDisplay = box.querySelector('.price-current');
         const priceOldDisplay = box.querySelector('.price-old');
-
-        // Find the hero-price-display in the same section
         const section = box.closest('section');
         const heroPriceDisplay = section ? section.querySelector('.hero-price-display') : null;
-
-        // Extract base prices (assuming initial HTML values represent 1 unit)
         const basePriceCurrent = parseFloat(priceCurrentDisplay.textContent.replace('$', ''));
         const basePriceOld = parseFloat(priceOldDisplay.textContent.replace('$', ''));
 
@@ -110,8 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
             priceOldDisplay.textContent = '$' + (basePriceOld * currentQty).toFixed(2);
             if (heroPriceDisplay) heroPriceDisplay.textContent = newPrice;
         };
-
-        // Initialize correctly based on starting qty
         updateDisplay();
 
         btnDecrease.addEventListener('click', () => {
@@ -127,3 +119,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
